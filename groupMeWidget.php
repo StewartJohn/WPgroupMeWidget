@@ -41,7 +41,7 @@ echo $args['before_title'] . $title . $args['after_title'];
 // This is where you run the code and display the output
 
 $response = wp_remote_get( 'http://status.reclaimhosting.com/api/v1/components' ); //use HTTP GET to retrieve server status information from the API
-echo "<img src="http://icons.iconarchive.com/icons/chrisbanks2/cold-fusion-hd/128/GroupMe-icon.png">
+echo "<img src="http://icons.iconarchive.com/icons/chrisbanks2/cold-fusion-hd/128/GroupMe-icon.png">;
 if( is_array($response) ) {
     $body = $response['body']; // use the content
     $a = json_decode($body, true); //parse the json from the HTTP GET
