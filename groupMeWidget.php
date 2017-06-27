@@ -1,8 +1,30 @@
 <?php
-/*
-Plugin Name: Group Me Widget
-Description: Adds a widget to the site that displays the latest posts from a GroupMe account
+/**
+ * Plugin Name: Group Me Widget
+ * Plugin URI: https://github.com/StewartJohn/WPgroupMeWidget/
+ * Description: Adds a widget to the site that displays the latest posts from a GroupMe account
+ * Version: 0.1
+ * Author: John Stewart
+ * Author URI: https://johnastewart.org
+ * License: GPL2
 */
+
+/*   2017 John  (email : johnstewart@ou.edu)
+ 
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License, version 2, as 
+    published by the Free Software Foundation.
+ 
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+ 
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+*/
+
 /* Start Adding Functions Below this Line */
 
 // Register and load the widget
