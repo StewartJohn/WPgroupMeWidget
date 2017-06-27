@@ -41,6 +41,7 @@ echo $args['before_title'] . $title . $args['after_title'];
 // This is where you run the code and display the output
 
 $response = wp_remote_get( 'http://status.reclaimhosting.com/api/v1/components' ); //use HTTP GET to retrieve server status information from the API
+echo "<img src="http://icons.iconarchive.com/icons/chrisbanks2/cold-fusion-hd/128/GroupMe-icon.png">
 if( is_array($response) ) {
     $body = $response['body']; // use the content
     $a = json_decode($body, true); //parse the json from the HTTP GET
@@ -49,9 +50,9 @@ if( is_array($response) ) {
     $serverName2 = $a[data][15][name]; //Set a variable called serverName2 equal to the name attribute for the 15th item in the Server List
     $status2 = $a[data][15][status_name]; //Set a variable called status2 equal to the status_name attribute for the 15th item in the Server List
 if( $status1=="Operational") {
-    echo $serverName1, ": ", $status1, " ", "<img src='https://create.ou.edu/wp-content/uploads/2016/02/2000px-MW-Icon-CheckMark.svg_-e1456421962246.png'>", PHP_EOL; //Print the information for the first server to the screen
+    echo $serverName1, ": ", $status1, " ", "<img src='https://create.ou.edu/wp-content/uploads/2016/02/2000px-MW-Icon-CheckMark.svg_-e1456421962246.png'>", "<br>"; //Print the information for the first server to the screen
     } else {
-    echo $serverName1, ": ", $status1, " ", "<img src='https://create.ou.edu/wp-content/uploads/2016/02/420px-X_mark.svg_-4-e1456422394441.png'>", PHP_EOL; //Print the information for the first server to the screen
+    echo $serverName1, ": ", $status1, " ", "<img src='https://create.ou.edu/wp-content/uploads/2016/02/420px-X_mark.svg_-4-e1456422394441.png'>", "<br>"; //Print the information for the first server to the screen
     }
 if( $status2=="Operational") {
     echo $serverName2, ": ", $status2, " ", "<img src='https://create.ou.edu/wp-content/uploads/2016/02/2000px-MW-Icon-CheckMark.svg_-e1456421962246.png'>"; //Print the information for the second server to the screen
@@ -59,7 +60,7 @@ if( $status2=="Operational") {
     echo $serverName2, ": ", $status2, " ", "<img src='https://create.ou.edu/wp-content/uploads/2016/02/420px-X_mark.svg_-4-e1456422394441.png'>"; //Print the information for the second server to the screen
     }
 } else {
-echo "Error communicating with Reclaim Hosting Status API";
+echo "Error communicating with GroupMe API";
 }
 	
 //echo __( 'Hello, World!', 'groupMe_widget_domain' );
