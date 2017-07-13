@@ -62,27 +62,18 @@ echo $args['before_title'] . $title . $args['after_title'];
 
 // This is where you run the code and display the output
 
-$response = wp_remote_get( 'http://status.reclaimhosting.com/api/v1/components' ); //use HTTP GET to retrieve server status information from the API
-echo "<img width='40px' height='40px' src='http://icons.iconarchive.com/icons/chrisbanks2/cold-fusion-hd/128/GroupMe-icon.png'><br />";
+$response = wp_remote_get( 'https://api.groupme.com/v3/groups/26254485/messages?token=29FGbqXjZHS5FdXsObHMqgkWT1AFerdbYjMAaxr1' ); //use HTTP GET to retrieve server status information from the API
+echo "<img src='http://ouitspecialist.com/wp-content/uploads/2017/07/group_me_icon.png'>", "<br>";
 if( is_array($response) ) {
     $body = $response['body']; // use the content
     $a = json_decode($body, true); //parse the json from the HTTP GET
-    $serverName1 = $a[data][7][name]; //Set a variable called serverName1 equal to the name attribute for the 7th item in the Server List
-    $status1 = $a[data][7][status_name]; //Set a variable called status1 equal to the status_name attribute for the 7th item in the Server List
-    $serverName2 = $a[data][15][name]; //Set a variable called serverName2 equal to the name attribute for the 15th item in the Server List
-    $status2 = $a[data][15][status_name]; //Set a variable called status2 equal to the status_name attribute for the 15th item in the Server List
-if( $status1=="Operational") {
-    echo $serverName1, ": ", $status1, " ", "<img src='https://create.ou.edu/wp-content/uploads/2016/02/2000px-MW-Icon-CheckMark.svg_-e1456421962246.png'>", "<br />"; //Print the information for the first server to the screen
-    } else {
-    echo $serverName1, ": ", $status1, " ", "<img src='https://create.ou.edu/wp-content/uploads/2016/02/420px-X_mark.svg_-4-e1456422394441.png'>", "<br />"; //Print the information for the first server to the screen
-    }
-if( $status2=="Operational") {
-    echo $serverName2, ": ", $status2, " ", "<img src='https://create.ou.edu/wp-content/uploads/2016/02/2000px-MW-Icon-CheckMark.svg_-e1456421962246.png'>"; //Print the information for the second server to the screen
-    } else {
-    echo $serverName2, ": ", $status2, " ", "<img src='https://create.ou.edu/wp-content/uploads/2016/02/420px-X_mark.svg_-4-e1456422394441.png'>"; //Print the information for the second server to the screen
+    for($i = 0; $i < 5; $i++) {
+        $message_sender = $a['response']['messages'][$i]['name']; //Set a variable called message_sender equal to the name attribute for the ith item in the messages list
+        $message_text = $a['response']['messages'][$i]['text']; //Set a variable called message_text equal to the name attribute for the ith item in the messages list
+        echo "<p><strong>", $message_sender, "</strong>: ", $message_text, "</p>"; //print the message
     }
 } else {
-echo "Error communicating with GroupMe API";
+echo "Error communicating with Group Me API";
 }
 	
 //echo __( 'Hello, World!', 'groupMe_widget_domain' );
